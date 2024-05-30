@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sky {
+  id              Int       @id @default(autoincrement())
+  cloudLevel      Int
+  moonPhase       MoonPhase @default(New)
+  rainType        RainType  @default(None)
+  fogLevel        Int
+  constellations   Constellation[]
+}
+
+model Constellation {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  imgLink     String
+  sky         Sky      @relation(fields: [skyId], references: [id], onDelete: Cascade)
+  skyId       Int
+  stars       Star[]
+
+  @@index([skyId])
+}
+
+model Star {
+  id              Int             @id @default(autoincrement())
+  name            String
+  description     String
+  imgLink         String
+  constellation    Constellation   @relation(fields: [constellationId], references: [id], onDelete: Cascade)
+  constellationId  Int
+
+  @@index([constellationId])
+}
+
+enum MoonPhase {
+  New
+  Waxing_Crescent
+  First_Quarter
+  Waxing_Gibbous
+  Full
+  Waning_Gibbous
+  Third_Quarter
+  Waning_Crescent
+}
+
+enum RainType {
+  Snow
+  Drizzle
+  Heavy
+  None
+}
