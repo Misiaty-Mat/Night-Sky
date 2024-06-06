@@ -15,27 +15,45 @@ function ConstellationStars() {
   }
 
   return (
-    <div className="App">
-      {stars.map(star => (
-        <div key={star.id}>
-          <div>{star.name}</div>
-          <div>{star.description}</div>
-          <img width="300" src={star.imgLink} alt="Star" />
-          <div>
-            <Link to={`/skies/${skyIdParam}/constellations/${constellationIdParam}/stars/update/${star.id}`}>Update Star</Link>
-          </div>
-          <div>
-            <button onClick={() => handleDelete(star.id)}>Delete Star</button>
-          </div>
-        </div>
-      ))}
-      <div>
-        <Link to={`/skies/${skyIdParam}/constellations/${constellationIdParam}/stars/new`}>Add Star</Link>
+    <div>
+      <nav className="navbar">
+        <span className="navbar-title">Stars</span>
+      </nav>
+      <div className="constellation-stars-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {stars.map(star => (
+              <tr key={star.id}>
+                <td>{star.name}</td>
+                <td className="description-column">{star.description}</td>
+                <td><img src={star.imgLink} alt="Star" /></td>
+                <td>
+                  <Link className="action-link" to={`/skies/${skyIdParam}/constellations/${constellationIdParam}/stars/update/${star.id}`}>Update Star</Link>
+                  <button className="action-button" onClick={() => handleDelete(star.id)}>Delete Star</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <div>
-        <Link to={`/skies/${skyIdParam}/constellations`}>Back</Link>
+      <div className="bottom-buttons">
+        <div>
+          <Link className="submit-button" to={`/skies/${skyIdParam}/constellations/${constellationIdParam}/stars/new`}>Add Star</Link>
+        </div>
+        <div>
+          <Link className="back-link" to={`/skies/${skyIdParam}/constellations`}>Back</Link>
+        </div>
       </div>
     </div>
+    
   );
 }
 

@@ -3,6 +3,8 @@ import { createSky, fetchSkyById, updateSky } from '../api/requests';
 import { MoonPhase, RainType } from '../model/Sky';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import logo from '../img/logoSkyManager.png';
+
 
 function SkyForm() {
     const navigate = useNavigate();
@@ -42,44 +44,66 @@ function SkyForm() {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Cloud Level:
-                    <input type="number" value={cloudLevel} min={0} max={10} onChange={(e) => setCloudLevel(Number(e.target.value))} />
-                </label>
-                <br />
-                <label>
-                    Moon Phase:
-                    <select value={moonPhase} onChange={(e) => setMoonPhase(MoonPhase[e.target.value as keyof typeof MoonPhase])}>
-                        {Object.values(MoonPhase).map((moonPhase) => (
-                            <option key={moonPhase} value={moonPhase}>
-                                {moonPhase}
+        <div className="sky-form-container">
+            <img src={logo} alt="Sky Manager Logo" className="logo" /> {/* Dodaj logo */}
+            <form onSubmit={handleSubmit} className='sky-form'>
+            <div className="form-group">
+                    <label htmlFor="cloudLevel">Cloud Level:</label>
+                    <input
+                        id="cloudLevel"
+                        type="number"
+                        value={cloudLevel}
+                        min={0}
+                        max={10}
+                        onChange={(e) => setCloudLevel(Number(e.target.value))}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="moonPhase">Moon Phase:</label>
+                    <select
+                        id="moonPhase"
+                        value={moonPhase}
+                        onChange={(e) => setMoonPhase(MoonPhase[e.target.value as keyof typeof MoonPhase])}
+                    >
+                        {Object.values(MoonPhase).map((phase) => (
+                            <option key={phase} value={phase}>
+                                {phase}
                             </option>
                         ))}
                     </select>
-                </label>
-                <br />
-                <label>
-                    Rain Type:
+                </div>
 
-                    <select value={rainType} onChange={(e) => setRainType(RainType[e.target.value as keyof typeof RainType])}>
-                        {Object.values(RainType).map((rainType) => (
-                            <option key={rainType} value={rainType}>
-                                {rainType}
+                <div className="form-group">
+                    <label htmlFor="rainType">Rain Type:</label>
+                    <select
+                        id="rainType"
+                        value={rainType}
+                        onChange={(e) => setRainType(RainType[e.target.value as keyof typeof RainType])}
+                    >
+                        {Object.values(RainType).map((type) => (
+                            <option key={type} value={type}>
+                                {type}
                             </option>
                         ))}
                     </select>
-                </label>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="fogLevel">Fog Level:</label>
+                    <input
+                        id="fogLevel"
+                        type="number"
+                        value={fogLevel}
+                        min={0}
+                        max={10}
+                        onChange={(e) => setFogLevel(Number(e.target.value))}
+                    />
+                </div>
+
                 <br />
-                <label>
-                    Fog Level:
-                    <input type="number" value={fogLevel} min={0} max={10} onChange={(e) => setFogLevel(Number(e.target.value))} />
-                </label>
-                <br />
-                <button type="submit">{ skyId ? 'Update Sky' : 'Create Sky'}</button>
+                <button type="submit" className="submit-button">{ skyId ? 'Update Sky' : 'Create Sky'}</button>
             </form>
-            <Link to="/">Back</Link>
+            <Link to="/" className="back-link">Back</Link>
         </div>
     );
 }

@@ -39,26 +39,23 @@ function ConstellationForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className="constellation-form-container">
+      <form onSubmit={handleSubmit} className="constellation-form">
+        <label htmlFor="name">
           Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
-        <br />
-        <label>
+        <label htmlFor="description">
           Description:
-          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} />
         </label>
-        <br />
-        <label>
+        <label htmlFor="imgLink">
           Image Link:
-          <input type="text" value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
+          <input type="text" id="imgLink" value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
         </label>
-        <br />
-        <button type="submit">{constellationId ? 'Update Constellation' : 'Create Constellation'}</button>
+        <button type="submit" className="submit-button">{constellationId ? 'Update Constellation' : 'Create Constellation'}</button>
       </form>
-      <Link to={`/skies/${skyId}/constellations`}>Back</Link>
+      <Link to={`/skies/${skyId}/constellations`} className="back-link">Back</Link>
     </div>
   );
 }

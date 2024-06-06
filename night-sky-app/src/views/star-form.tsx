@@ -3,6 +3,7 @@ import { createStar, fetchStarById, updateStar } from '../api/requests';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+
 function StarForm() {
   const { skyId, constellationId, starId } = useParams();
   const navigate = useNavigate();
@@ -39,8 +40,9 @@ function StarForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    
+    <div className="star-form-container">
+      <form onSubmit={handleSubmit} className="star-form">
         <label>
           Name:
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
@@ -56,9 +58,9 @@ function StarForm() {
           <input type="text" value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
         </label>
         <br />
-        <button type="submit">{starId ? 'Update Star' : 'Create Star'}</button>
+        <button type="submit" className="submit-button">{starId ? 'Update Star' : 'Create Star'}</button>
       </form>
-      <Link to={`/skies/${skyId}/constellations/${constellationId}/stars`}>Back</Link>
+      <Link to={`/skies/${skyId}/constellations/${constellationId}/stars`} className="back-link">Back</Link>
     </div>
   );
 }

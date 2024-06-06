@@ -36,3 +36,286 @@
     transform: rotate(360deg);
   }
 }
+
+/* sky-form */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.sky-form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 33vw;
+  max-width: 400px;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 200px;
+  width: auto; 
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.sky-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.back-link {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  display: inline-block;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* star-form */
+
+.star-form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 33vw;
+  max-width: 400px;
+}
+
+.star-form {
+  width: 100%;
+}
+
+.star-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.star-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* constelation-form */
+.constellation-form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 33vw;
+  max-width: 400px;
+}
+
+.constellation-form {
+  width: 100%;
+}
+
+.constellation-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.constellation-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Constellations */
+.navbar {
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px; 
+}
+
+.navbar-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.constellations-container {
+  
+  margin: 20px auto;
+  border-radius: 10px; 
+  overflow-x: auto;
+  border: 1px solid #ddd; 
+  background-color: #f2f2f2;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+td img {
+  display: block;
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+
+td a, td button {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+td a:hover, td button:hover {
+  text-decoration: underline;
+}
+
+.action-link {
+  margin-right: 10px;
+  padding: 8px 15px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.action-button {
+  margin-right: 10px;
+  padding: 8px 15px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.bottom-buttons {
+  text-align: center;
+}
+
+/* stars */
+
+.constellation-stars-container {
+  margin: 20px auto;
+  width: calc(100%);
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+
+.description-column {
+  max-width: 300px;
+  word-wrap: break-word; 
+}
+
+
+/* Skies */
+
+.App {
+  text-align: center;
+}
+
+.skies-container {
+  margin: 20px auto;
+  border-radius: 10px; 
+  overflow-x: auto;
+  border: 1px solid #ddd; 
+  background-color: #f2f2f2;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useSkyConstellations from '../hooks/useConstelations';
 import { deleteConstellation } from '../api/requests';
+import logo from '../img/logoSkyManager.png';
 
 function SkyConstellations() {
   const skyIdParam = useParams().skyId;
@@ -14,30 +15,47 @@ function SkyConstellations() {
   }
 
   return (
-    <div className="App">
-      {constellations.map(constellation => (
-        <div key={constellation.id}>
-          <div>{constellation.name}</div>
-          <div>{constellation.description}</div>
-          <img width="300" src={constellation.imgLink} alt="Constellation" />
-          <div>
-            <Link to={`/skies/${skyIdParam}/constellations/${constellation.id}/stars`}>View stars</Link>
-          </div>
-          <div>
-            <Link to={`/skies/${skyIdParam}/constellations/update/${constellation.id}`}>Update constellation</Link>
-          </div>
-          <div>
-            <button onClick={() => handleDelete(constellation.id)}>Delete constellation</button>
-          </div>
+    <div>
+      <nav className="navbar">
+        <span className="navbar-title">Constellations</span>
+      </nav>
+      <div className="constellations-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {constellations.map(constellation => (
+              <tr key={constellation.id}>
+                <td>{constellation.name}</td>
+                <td className="description-column">{constellation.description}</td>
+                <td><img width="100" src={constellation.imgLink} alt="Constellation" /></td>
+                <td>
+                  <Link className="action-link" to={`/skies/${skyIdParam}/constellations/${constellation.id}/stars`}>View stars</Link>
+                  <Link className="action-link" to={`/skies/${skyIdParam}/constellations/update/${constellation.id}`}>Update</Link>
+                  <button className="action-button" onClick={() => handleDelete(constellation.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className='bottom-buttons'>
+        <div>
+          <Link to={`/skies/${skyIdParam}/constellations/new`} className="submit-button">Add new constellation</Link>
         </div>
-      ))}
-      <div>
-        <Link to={`/skies/${skyIdParam}/constellations/new`}>Add new constellation</Link>
+        <div>
+          <Link to={`/`} className="back-link">Back</Link>
+        </div>
       </div>
-      <div>
-        <Link to={`/`}>Back</Link>
-      </div>
+      
     </div>
+
   );
 }
 
