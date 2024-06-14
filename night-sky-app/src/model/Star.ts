@@ -4,4 +4,5 @@ export type Star = {
     description: string;
     constellationId: string;
     imgLink: string;
+    isOn?: boolean;
 }

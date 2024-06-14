@@ -35,10 +35,11 @@ model Constellation {
 }
 
 model Star {
-  id              Int             @id @default(autoincrement())
+  id              Int              @id @default(autoincrement())
   name            String
   description     String
   imgLink         String
+  isOn            Boolean          @default(true)
   constellation    Constellation   @relation(fields: [constellationId], references: [id], onDelete: Cascade)
   constellationId  Int
 

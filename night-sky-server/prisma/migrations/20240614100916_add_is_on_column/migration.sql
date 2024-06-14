@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Star" ADD COLUMN     "isOn" BOOLEAN NOT NULL DEFAULT true;

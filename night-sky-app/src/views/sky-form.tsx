@@ -14,6 +14,7 @@ function SkyForm() {
     const [moonPhase, setMoonPhase] = useState(MoonPhase.New);
     const [rainType, setRainType] = useState(RainType.None);
     const [fogLevel, setFogLevel] = useState(0);
+    const [rainDisabled, setRainDisabled] = useState(true);
 
     useEffect(() => {
         if (skyId) {
@@ -26,6 +27,14 @@ function SkyForm() {
         }
     }, [skyId]);
 
+    useEffect(() => {
+        if (cloudLevel === 0) {
+            setRainDisabled(true);
+            setRainType(RainType.None);
+        } else {
+            setRainDisabled(false);
+        }
+    }, [cloudLevel]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -81,7 +90,7 @@ function SkyForm() {
                         onChange={(e) => setRainType(RainType[e.target.value as keyof typeof RainType])}
                     >
                         {Object.values(RainType).map((type) => (
-                            <option key={type} value={type}>
+                            <option key={type} value={type} disabled={type !== RainType.None && rainDisabled}>
                                 {type}
                             </option>
                         ))}

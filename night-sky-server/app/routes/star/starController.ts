@@ -76,4 +76,24 @@ starRouter.delete('/:id', async (req: Request, res: Response) => {
     }
 });
 
+starRouter.put('/:id/turn-visability', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        const star = await prisma.star.findUnique({
+            where: { id: Number(id) }
+        });
+
+        const updatedStar = await prisma.star.update({
+            where: { id: Number(id) },
+            data: {
+                isOn: !star?.isOn
+              },
+        });
+        res.json(updatedStar);
+    } catch (error) {
+        console.error(error);
+        res.status(400).json({message: error});
+    }
+})
+
 export default starRouter;

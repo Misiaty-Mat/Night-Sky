@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useConstellationStars from '../hooks/useStars';
-import { deleteStar } from '../api/requests';
+import { deleteStar, switchStarVisability } from '../api/requests';
 
 function ConstellationStars() {
   const skyIdParam = useParams().skyId;
   const constellationIdParam = useParams().constellationId;
   const stars = useConstellationStars(Number(constellationIdParam));
 
-  const handleDelete = (id: number | undefined) => {
+  const handleDelete = (id: number | undefined): void => {
     if (!id) return;
 
     deleteStar(id).then(() => window.location.reload());
+  }
+
+  const handleSwitchStarVisability = async (id: number | undefined): Promise<void> => {
+    if (!id) return;
+
+    await switchStarVisability(id);
+    window.location.reload();
   }
 
   return (
@@ -31,13 +38,14 @@ function ConstellationStars() {
           </thead>
           <tbody>
             {stars.map(star => (
-              <tr key={star.id}>
+              <tr key={star.id} className={ !star.isOn ? "turnedOff" : "" }>
                 <td>{star.name}</td>
                 <td className="description-column">{star.description}</td>
-                <td><img src={star.imgLink} alt="Star" /></td>
+                <td><img src={star.imgLink} alt="Star" style={{ filter: star.isOn ? "grayscale(0%)" : "grayscale(100%)" }}/></td>
                 <td>
                   <Link className="action-link" to={`/skies/${skyIdParam}/constellations/${constellationIdParam}/stars/update/${star.id}`}>Update Star</Link>
                   <button className="action-button" onClick={() => handleDelete(star.id)}>Delete Star</button>
+                  <button className="action-button" onClick={() => handleSwitchStarVisability(star.id)}>{star.isOn ? "Hide Star" : "Show Star"}</button>
                 </td>
               </tr>
             ))}
@@ -53,7 +61,7 @@ function ConstellationStars() {
         </div>
       </div>
     </div>
-    
+
   );
 }
 

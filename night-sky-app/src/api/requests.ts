@@ -107,3 +107,9 @@ export const deleteStar = async (id: number): Promise<void> => {
         method: 'DELETE'
     });
 }
+
+export const switchStarVisability = async (id: number): Promise<void> => {
+    await fetch(`${API_URL}/star/${id}/turn-visability`, {
+        method: 'PUT'
+    });
+}

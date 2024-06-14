@@ -65,7 +65,7 @@ body {
 .logo {
   max-width: 100%;
   max-height: 200px;
-  width: auto; 
+  width: auto;
   height: auto;
   margin-bottom: 20px;
 }
@@ -195,7 +195,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .navbar-title {
@@ -205,11 +205,11 @@ body {
 }
 
 .constellations-container {
-  
+
   margin: 20px auto;
-  border-radius: 10px; 
+  border-radius: 10px;
   overflow-x: auto;
-  border: 1px solid #ddd; 
+  border: 1px solid #ddd;
   background-color: #f2f2f2;
 }
 
@@ -302,7 +302,11 @@ td a:hover, td button:hover {
 
 .description-column {
   max-width: 300px;
-  word-wrap: break-word; 
+  word-wrap: break-word;
+}
+
+.turnedOff {
+  background-color: #dfdfdf;
 }
 
 
@@ -314,8 +318,8 @@ td a:hover, td button:hover {
 
 .skies-container {
   margin: 20px auto;
-  border-radius: 10px; 
+  border-radius: 10px;
   overflow-x: auto;
-  border: 1px solid #ddd; 
+  border: 1px solid #ddd;
   background-color: #f2f2f2;
 }
