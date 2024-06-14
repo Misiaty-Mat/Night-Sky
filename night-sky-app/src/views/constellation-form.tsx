@@ -55,7 +55,7 @@ function ConstellationForm() {
         </label>
         <button type="submit" className="submit-button">{constellationId ? 'Update Constellation' : 'Create Constellation'}</button>
       </form>
-      <Link to={`/skies/${skyId}/constellations`} className="back-link">Back</Link>
+      <Link to={`/skies/${skyId}/constellations`} className="back-link-black">Back</Link>
     </div>
   );
 }

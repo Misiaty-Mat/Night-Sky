@@ -50,7 +50,7 @@ function SkyConstellations() {
           <Link to={`/skies/${skyIdParam}/constellations/new`} className="submit-button">Add new constellation</Link>
         </div>
         <div>
-          <Link to={`/`} className="back-link">Back</Link>
+          <Link to={`/`} className="back-link-white">Back</Link>
         </div>
       </div>
       
