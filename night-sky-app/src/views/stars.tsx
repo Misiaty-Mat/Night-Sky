@@ -49,7 +49,7 @@ function ConstellationStars() {
           <Link className="submit-button" to={`/skies/${skyIdParam}/constellations/${constellationIdParam}/stars/new`}>Add Star</Link>
         </div>
         <div>
-          <Link className="back-link" to={`/skies/${skyIdParam}/constellations`}>Back</Link>
+          <Link className="back-link-white" to={`/skies/${skyIdParam}/constellations`}>Back</Link>
         </div>
       </div>
     </div>

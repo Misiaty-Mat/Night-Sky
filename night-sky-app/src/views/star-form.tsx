@@ -60,7 +60,7 @@ function StarForm() {
         <br />
         <button type="submit" className="submit-button">{starId ? 'Update Star' : 'Create Star'}</button>
       </form>
-      <Link to={`/skies/${skyId}/constellations/${constellationId}/stars`} className="back-link">Back</Link>
+      <Link to={`/skies/${skyId}/constellations/${constellationId}/stars`} className="back-link-black">Back</Link>
     </div>
   );
 }

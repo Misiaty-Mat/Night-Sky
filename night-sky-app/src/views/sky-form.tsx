@@ -103,7 +103,7 @@ function SkyForm() {
                 <br />
                 <button type="submit" className="submit-button">{ skyId ? 'Update Sky' : 'Create Sky'}</button>
             </form>
-            <Link to="/" className="back-link">Back</Link>
+            <Link to="/" className="back-link-black">Back</Link>
         </div>
     );
 }
